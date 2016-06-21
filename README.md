@@ -1,5 +1,5 @@
 # someParser
-This is based on http://lisperator.net/pltut/ but it is in python instead, and other things are different.
+This is based on http://lisperator.net/pltut/ (which is in turn based on https://github.com/marijnh/parse-js ) but it is in python instead of js (instead of lisp), and other things are different.
 
 Whatever licencing that I am obligated to apply to this because of this being partially based on that applies.
 
