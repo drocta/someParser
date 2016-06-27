@@ -5,7 +5,7 @@ import parser
 import enviroment
 import evaluate
 
-env = enviroment.Enviroment()
+env = environment.Environment()
 
 def println(aaa):
   print(aaa)
