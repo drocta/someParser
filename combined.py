@@ -2,7 +2,7 @@
 
 import sys
 import parser
-import enviroment
+import environment
 import evaluate
 
 env = environment.Environment()
