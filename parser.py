@@ -50,6 +50,10 @@ class astNode:
       self.right = kwargs['right']
     else:
       self.right = None
+    if('prog' in kwargs):
+      self.prog = kwargs['prog']
+    else:
+      self.prog = None
   
   def __str__(self):
     return "{type: " + self.ntype + ", " + (','.join([key+":"+str(self.kwargs[key]) for key in self.kwargs])) + "}"
@@ -110,7 +114,7 @@ def parse(tokenStream):
         if(tok.value == "="):
           ntype = "assign"
         mright = maybe_binary(parse_atom(), its_prec)
-        node = astNode(ntype, operator = tok.value, left = mleft, right = mright)
+        node = astNode(ntype, op = tok.value, left = mleft, right = mright)
         return maybe_binary(node, my_prec)
     return mleft
   
@@ -158,7 +162,7 @@ def parse(tokenStream):
   
   def parse_bool():
     return astNode("bool", value = ( tokenStream.next().value == "true"))
-  
+
   def maybe_call(exprFunction): # evaluates argument, and then, if applicable, calls it as a function.
     exprResult = exprFunction() #this might not work right. Might need to adjust this for python
     if(is_punc("(")):
@@ -184,7 +188,7 @@ def parse(tokenStream):
         return parse_lambda()
       tok = tokenStream.next()
       if(tok.ttype in ("var","num", "str")):
-        return tok
+        return astNode(tok.ttype, value = tok.value)
       unexpected()
     return maybe_call(f)
 
