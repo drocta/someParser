@@ -17,7 +17,7 @@ Assuming I can, I will probably eventually release this under some version of th
 
 # Use
 
-To use this in its current state, run combined.py. To use it in interactive mode, just run combined.py . To use it to run another program, put the program filename (including path if neccesary) as the command line argument.
+To use this in its current state, run combined.py. To use it in interactive mode, just run combined.py . To use it to run another program, put the program filename (including path if neccesary) as the command line argument. combined.py should be in the same folder as the other files to work right.
 
 If you want to make a file run with this on a unixlike os, that works with the hashbang thing
 have the first line of the program be #! followed by something that gives where combined.py is, and then you should be able to run the program by just running it. Like, just typing in ./example1.howl for example. Look at example1.howl to see what I mean.
