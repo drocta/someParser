@@ -20,7 +20,7 @@ class TokenStream():
         while(True):
             self.read_while(self.is_whitespace)
             if(self.inputStream.eof()):
-                return None
+                return False
             ch = self.inputStream.peek()
             if(ch == '#'):
                 self.skip_comment()
@@ -102,8 +102,11 @@ class TokenStream():
     def peek(self):
         if(self.current == False):
             self.current = self.read_next()
-        return current
-    
+        return self.current
+
+    def croak(self,msg):
+      return self.inputStream.croak(msg)    
+
     def next(self):
         token = self.current
         self.current = False
