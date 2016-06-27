@@ -11,6 +11,8 @@ class InputStream:
         self.leng = len(instring)
 
     def next(self):
+        if(self.eof()):
+          return ""
         ch = self.instring[self.pos]
         self.pos += 1
         if(ch == "\n"):
@@ -29,4 +31,4 @@ class InputStream:
         return self.pos >= self.leng
 
     def croak(self, msg):
-        raise InputStreamError(msg + " (" + str(line) + ":" + str(col) + ")")
+        raise InputStreamError(msg + " (" + str(self.line) + ":" + str(self.col) + ")")
